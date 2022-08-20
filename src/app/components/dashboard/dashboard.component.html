@@ -1,0 +1,38 @@
+<div class="container pt-4">
+    <div class="row">
+        <div class="col-lg-4 text-center mb-5">
+            <img [src]="urlImagen" alt="weather icon">
+        </div>
+        <div class="col-lg-6">
+            <input type="text" class="form-control form-control-lg text-center bigText" placeholder="Enter a city or country"
+                [(ngModel)]="searchCity" (keydown)="checkKey($event)" >
+            <button class="btn btn-lg btn-primary mt-4 bigText" [disabled]="searchCity.length === 0"
+                (click)="getWeather()">Check weather</button>
+            <div class="text-center mt-3" *ngIf="loading">
+                <div class="spinner-grow text-primary" role="status"></div>
+                <div class="spinner-grow text-primary" role="status"></div>
+                <div class="spinner-grow text-primary" role="status"></div>
+            </div>
+            <div class="card mt-3" *ngIf="query">
+                <div class="card-body">
+                    <div class="text-center">
+                    <h3 class="badge bg-success">{{displayCity}}</h3>
+                </div>
+                    <p><b>Country: </b> {{country}}</p>
+                    <p><b>Current Time: </b> {{localTime}}</p>
+                    <p><b>Temp: </b> {{temp | number: '1.2-2'}} C°</p>
+                    <p><b>Humidity: </b> {{humidity}}%</p>
+                    <p><b>Weather: </b> {{weather}}  <span style="margin: auto;"><img style="width: 80px" src= {{imgIcon}} alt="weather icon"></span></p>                                       
+                    <button class="btn btn-primary mt-4" *ngIf="savedCity != displayCity"(click)="saveCity()">Save {{displayCity}}</button>    
+                    <button class="btn btn-danger mt-4" *ngIf="isCitySaved" (click)="deleteCity()">Delete {{savedCity}}</button>               
+                </div>                
+            </div>
+            <div class="card mt-4" *ngIf="errorMessage.length !== 0">
+                <div class="card-body">
+                    <p class="text-center mt-2"><b>Error: </b> {{errorMessage}}</p>
+                </div>
+                
+            </div>
+        </div>        
+    </div>
+</div>
