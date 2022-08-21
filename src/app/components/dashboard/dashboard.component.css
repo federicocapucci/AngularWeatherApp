@@ -12,6 +12,10 @@ button{
 .titleText{
     font-size: 1.2rem;
 }
+.Suggestion{
+    font-size: 1rem;
+    cursor: pointer;    
+}
 
 @media(max-width: 600px){
 
@@ -25,7 +29,9 @@ button{
     .titleText{
         font-size: 1rem;
     }
-
+    .Suggestion{
+        font-size: 0.8rem;
+    }
 }
 
 

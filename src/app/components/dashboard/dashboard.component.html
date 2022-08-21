@@ -8,7 +8,7 @@
                 [(ngModel)]="searchCity" (keyup)="checkKey($event)">
                
                 <div *ngIf="filteredCities.length > 0" >
-                    <span class="badge bg-success m-1" 
+                    <span class="badge bg-success Suggestion m-1" 
                         *ngFor="let city of filteredCities" 
                         (click)="searchCity = city;getWeather()">{{city}}
                     </span>
