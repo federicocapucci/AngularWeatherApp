@@ -4,8 +4,17 @@
             <img [src]="urlImagen" alt="weather icon">
         </div>
         <div class="col-lg-6">
-            <input type="text" class="form-control form-control-lg text-center bigText" placeholder="Enter a city or country"
-                [(ngModel)]="searchCity" (keydown)="checkKey($event)" >
+            <input type="text" class="form-control form-control-lg text-center bigText" placeholder="Enter a city or country"            
+                [(ngModel)]="searchCity" (keyup)="checkKey($event)">
+               
+                <div *ngIf="filteredCities.length > 0" >
+                    <span class="badge bg-success m-1" 
+                        *ngFor="let city of filteredCities" 
+                        (click)="searchCity = city;getWeather()">{{city}}
+                    </span>
+                </div>
+
+
             <button class="btn btn-lg btn-primary mt-4 bigText" [disabled]="searchCity.length === 0"
                 (click)="getWeather()">Check weather</button>
             <div class="text-center mt-3" *ngIf="loading">
