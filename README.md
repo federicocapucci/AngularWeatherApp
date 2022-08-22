@@ -1,5 +1,13 @@
 # AngularWeatherApp
 
+<a href="https://ibb.co/qxwdb71"><img src="https://i.ibb.co/4Jx7BKN/screencapture-6303cc43219b450e49085a58-angular-weather-app-fc-netlify-app-2022-08-22-15-37-25.png" alt="screencapture-6303cc43219b450e49085a58-angular-weather-app-fc-netlify-app-2022-08-22-15-37-25" border="0"></a>
+
+This application allows you to search for any city or country in the world and see the weather, current time and location ona Google maps iframe.
+
+
+<a href="https://ibb.co/bQLS7HH"><img src="https://i.ibb.co/xXGp3mm/screencapture-6303cc43219b450e49085a58-angular-weather-app-fc-netlify-app-2022-08-22-15-37-55.png" alt="screencapture-6303cc43219b450e49085a58-angular-weather-app-fc-netlify-app-2022-08-22-15-37-55" border="0"></a>
+
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.1.1.
 
 ## Development server
