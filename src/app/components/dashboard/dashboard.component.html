@@ -31,7 +31,10 @@
                     <p><b>Current Time: </b> {{localTime}}</p>
                     <p><b>Temp: </b> {{temp | number: '1.2-2'}} C°</p>
                     <p><b>Humidity: </b> {{humidity}}%</p>
-                    <p><b>Weather: </b> {{weather}}  <span style="margin: auto;"><img style="width: 80px" src= {{imgIcon}} alt="weather icon"></span></p>                                       
+                    <p><b>Weather: </b> {{weather}}  <span style="margin: auto;"><img style="width: 80px" src= {{imgIcon}} alt="weather icon"></span></p>      
+                    <hr>  
+                    <iframe [src]="mapURL | safe" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    <hr>                                     
                     <button class="btn btn-primary mt-4" *ngIf="savedCity != displayCity"(click)="saveCity()">Save {{displayCity}}</button>    
                     <button class="btn btn-danger mt-4" *ngIf="isCitySaved" (click)="deleteCity()">Delete {{savedCity}}</button>               
                 </div>                
@@ -45,3 +48,4 @@
         </div>        
     </div>
 </div>
+

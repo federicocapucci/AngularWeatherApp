@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { WeatherService } from 'src/app/services/weather.service';
 
+
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
@@ -20,6 +21,9 @@ export class DashboardComponent implements OnInit {
   errorMessage: string = '';
   country: string = '';
   imgIcon: string = '';
+  mapURL : string = '';
+  lat: number = 0;
+  lon: number = 0;
   listOfCities: any[] = [
     'Afghanistan',
     'Albania',
@@ -1431,7 +1435,7 @@ export class DashboardComponent implements OnInit {
     this._weatherService.getWeather(this.searchCity).subscribe(
 
       {
-        next: (data) => {
+        next: (data) => {          
           this.loading = false;
           this.query = true;
           this.displayCity = data.name;
@@ -1445,6 +1449,10 @@ export class DashboardComponent implements OnInit {
           this.weather = data.weather[0].main + " (" + data.weather[0].description + ")."
           let iconCode = data.weather[0].icon;
           this.imgIcon = "http://openweathermap.org/img/w/" + iconCode + ".png";
+          
+          this.lat = data.coord.lat;
+          this.lon = data.coord.lon;          
+          this.mapURL = "https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d13624.07585186481!2d" + this.lon + "!3d" + this.lat + "!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sar!4v1661185034213!5m2!1sen!2sar&z=2015";          
 
         },
         error: (error) => {
@@ -1491,3 +1499,4 @@ export class DashboardComponent implements OnInit {
 
 
 }
+
