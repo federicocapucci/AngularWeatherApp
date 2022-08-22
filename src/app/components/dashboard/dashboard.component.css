@@ -17,6 +17,17 @@ button{
     cursor: pointer;    
 }
 
+.cropped{
+    height: 45px;
+    width: 50px;
+    object-fit:cover
+}
+
+.noMB{
+    margin-bottom: 0;
+
+}
+
 @media(max-width: 600px){
 
     img{
